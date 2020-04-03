@@ -1,0 +1,53 @@
+server:
+  port: 8081
+  
+spring:
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+#    url: jdbc:mysql://192.168.80.83:33060/wrj?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/m-sincere?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&allowPublicKeyRetrieval=true
+    username: root
+#    password: whayer123
+    password: 123456
+
+#Mybatis配置
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  configuration:
+    #配置关闭缓存
+    cache-enabled: false
+    #是否开启自动驼峰命名规则（camel case）映射
+    map-underscore-to-camel-case: true
+    #全局启用或禁用延迟加载。当禁用时，所有关联对象都会即时加载
+    lazy-loading-enabled: true
+    #当启用时，有延迟加载属性的对象在被调用时将会完全加载任意属性。否则，每种属性将会按需要加载
+    aggressive-lazy-loading: true
+    #允许 JDBC 支持自动生成主键
+    use-generated-keys: true
+    #配置默认的执行器。SIMPLE 就是普通的执行器；REUSE 执行器会重用预处理语句（prepared statements）； BATCH 执行器将重用语句并执行批量更新
+    default-executor-type: reuse
+    #设置超时时间，它决定驱动等待数据库响应的秒数
+    default-statement-timeout: 600
+    #设置本地缓存范围 session:就会有数据的共享, statement:语句范围 (多个SqlSession或者分布式的环境下使用，避免脏读 ) defalut:session
+    local-cache-scope: session
+    #设置日志输出
+    #log-impl: STDOUT_LOGGING
+      
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true #合理化应用，即如果pageNum<1时查第一页，pageNum>pages时查询最后一页
+  support-methods-arguments: true
+  params: count=countSql
+
+#日志 
+logging:
+  level:
+    org: INFO
+    com.sg: DEBUG
+cms:
+  wsdl: http://127.0.0.1/hengyang-web/BsMediaServer.wsdl

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sg.zhsd.uav.mapper.UserMapper">
+
+    <select id="queryUserInfo" parameterType="java.util.HashMap" resultType="com.sg.zhsd.uav.data.dto.UserDto">
+        select * from km_userinfo where username = #{username} and password = #{password}
+    </select>
+
+    <select id="getUserDtoList" resultType="com.sg.zhsd.uav.data.dto.UserDto">
+        select * from km_userinfo
+    </select>
+
+    <insert id="regist" parameterType="com.sg.zhsd.uav.data.dto.UserDto">
+        insert into km_userinfo values(#{username},#{password},#{id},#{deleted},#{phone},#{age},#{address},#{position})
+    </insert>
+
+</mapper>
