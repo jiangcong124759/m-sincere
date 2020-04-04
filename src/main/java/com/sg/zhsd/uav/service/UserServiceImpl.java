@@ -1,5 +1,7 @@
 package com.sg.zhsd.uav.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.sg.zhsd.uav.data.dto.UserDto;
 import com.sg.zhsd.uav.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper,UserDto> implements IUserService {
 
     @Autowired
     UserMapper userMapper;
@@ -47,7 +49,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public UserDto getUserInfo(String id) {
-
-        return null;
+        UserDto userDto = userMapper.getUserInfo(id);
+        return userDto;
     }
 }

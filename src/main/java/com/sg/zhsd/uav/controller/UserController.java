@@ -73,7 +73,7 @@ public class UserController extends BaseController {
     }
 
     @ApiOperation(value="获取加班狗子用户列表")
-    @PostMapping("/list/user")
+    @GetMapping("/list/user")
     public ResponseEntity<List<UserDto>> getUserDtoList(){
         List<UserDto> resultList = userService.getUserDtoList();
         return responseT(resultList);

@@ -12,6 +12,11 @@
         select * from km_userinfo
     </select>
 
+    <select id="getUserInfo" parameterType="java.lang.String" resultType="com.sg.zhsd.uav.data.dto.UserDto">
+        select * from km_userinfo where id = #{id}
+    </select>
+
+
     <insert id="regist" parameterType="com.sg.zhsd.uav.data.dto.UserDto">
         insert into km_userinfo values(#{username},#{password},#{id},#{deleted},#{phone},#{age},#{address},#{position})
     </insert>

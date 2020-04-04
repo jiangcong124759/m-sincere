@@ -1,14 +1,11 @@
 package com.sg.zhsd.uav.service;
 
-import com.sg.zhsd.uav.data.*;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.sg.zhsd.uav.data.dto.UserDto;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
-import java.util.Map;
 
-public interface IUserService {
+public interface IUserService extends IService<UserDto> {
 
     /**
      * 用户登录
