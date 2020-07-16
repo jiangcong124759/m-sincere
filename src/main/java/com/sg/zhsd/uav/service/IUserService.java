@@ -33,4 +33,10 @@ public interface IUserService extends IService<UserDto> {
      * @return
      */
     UserDto getUserInfo(String id);
+
+    /**
+     * 自定义注解Demo
+     * @param content
+     */
+    void testCustomerZhujie(String content);
 }

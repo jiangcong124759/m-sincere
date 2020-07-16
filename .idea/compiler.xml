@@ -9,5 +9,9 @@
         <module name="uav-manager" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Jpatest" target="1.5" />
+      <module name="m-sincere-eureka" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

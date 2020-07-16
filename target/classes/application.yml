@@ -10,7 +10,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
 #    url: jdbc:mysql://192.168.80.83:33060/wrj?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&allowPublicKeyRetrieval=true
-    url: jdbc:mysql://47.105.163.26:3306/m-sincere?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/m-sincere?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&allowPublicKeyRetrieval=true
     username: root
 #    password: whayer123
     password: 123456

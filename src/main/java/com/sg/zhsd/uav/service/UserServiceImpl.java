@@ -2,6 +2,7 @@ package com.sg.zhsd.uav.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.sg.zhsd.uav.config.CheckSensitiveWords;
 import com.sg.zhsd.uav.data.dto.UserDto;
 import com.sg.zhsd.uav.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,5 +52,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,UserDto> implements 
     public UserDto getUserInfo(String id) {
         UserDto userDto = userMapper.getUserInfo(id);
         return userDto;
+    }
+
+    @Override
+    @CheckSensitiveWords(object = UserDto.class,field = {"username"})
+    public void testCustomerZhujie(String content) {
+
     }
 }
