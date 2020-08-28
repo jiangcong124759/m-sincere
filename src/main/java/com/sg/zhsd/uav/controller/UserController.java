@@ -1,12 +1,12 @@
 package com.sg.zhsd.uav.controller;
 
 import com.sg.bdyw.web.BaseController;
+import com.sg.zhsd.uav.config.CheckSensitiveWords;
 import com.sg.zhsd.uav.data.dto.UserDto;
 import com.sg.zhsd.uav.service.IUserService;
 import com.sg.zhsd.uav.utils.CodeImageUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -59,7 +58,7 @@ public class UserController extends BaseController {
         String session_code = (String) session.getAttribute(LOGIN_CODE);
         session.removeAttribute(LOGIN_CODE);
         System.out.println("session中的验证码:" + session_code);
-        if (StringUtils.isBlank(userDto.getCode()) || !session_code.equalsIgnoreCase(userDto.getCode())) {
+        if (StringUtils.isBlank(userDto.getCode())/* || !session_code.equalsIgnoreCase(userDto.getCode())*/) {
             return responseT("验证码错误");
         }
         UserDto result = userService.login(userDto);
@@ -90,6 +89,7 @@ public class UserController extends BaseController {
     /**
      * docker-compose测试
      */
+    @ApiOperation(value = "docker-compose测试")
     @GetMapping("/docker-compose")
     public String returnString() {
         return "docker-compose test!" + new Date();
@@ -98,11 +98,23 @@ public class UserController extends BaseController {
     /**
      * 自定义注解
      */
+    @ApiOperation(value = "自定义注解")
     @GetMapping("/customerZhujie")
     public String testCustomerZhujie(String content) {
         userService.testCustomerZhujie(content);
         return "";
     }
+
+    /**
+     * 调用存储过程
+     */
+    @ApiOperation(value = "调用存储过程")
+    @GetMapping("stored/procedure/delete")
+    public String procedure(String id) {
+        userService.delete(id);
+        return "成功";
+    }
+
 
     public static void main(String[] args) {
         while (true) {
