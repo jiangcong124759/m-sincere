@@ -36,4 +36,6 @@ public interface UserMapper extends BaseMapper<UserDto> {
      * @return
      */
     UserDto getUserInfo(String id);
+
+    void deleteByUserId(String id);
 }

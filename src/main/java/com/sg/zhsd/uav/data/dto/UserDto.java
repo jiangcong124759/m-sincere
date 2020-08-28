@@ -34,4 +34,7 @@ public class UserDto {
 
     @ApiModelProperty(value="职位")
     private String position;
+
+    @ApiModelProperty(value="说明")
+    private String comment;
 }

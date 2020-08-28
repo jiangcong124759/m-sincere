@@ -39,4 +39,10 @@ public interface IUserService extends IService<UserDto> {
      * @param content
      */
     void testCustomerZhujie(String content);
+
+    /**
+     * 删除
+     * @param id
+     */
+    void delete(String id);
 }

@@ -60,6 +60,8 @@ public class CheckSensiWordsAspect {
 
                         String value = (String)field.get(arg);  //获取值
 
+                        System.err.println(value);
+
 //                        List<String> resultList = sensitiveWordManageService.sensitiveWordsFilter(value);
 //
 //                        if(resultList != null && !resultList.isEmpty()){

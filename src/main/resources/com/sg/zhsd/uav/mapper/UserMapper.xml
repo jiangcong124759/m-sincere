@@ -18,7 +18,11 @@
 
 
     <insert id="regist" parameterType="com.sg.zhsd.uav.data.dto.UserDto">
-        insert into km_userinfo values(#{username},#{password},#{id},#{deleted},#{phone},#{age},#{address},#{position})
+        insert into km_userinfo values(#{id},#{username},#{password},#{deleted},#{phone},#{age},#{address},#{position},#{comment})
     </insert>
+
+    <delete id="deleteByUserId" parameterType="java.lang.String">
+        {call deleteUser(#{id,mode=IN})}
+    </delete>
 
 </mapper>
